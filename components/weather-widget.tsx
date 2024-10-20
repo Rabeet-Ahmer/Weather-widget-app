@@ -110,8 +110,8 @@ const getLocationMessege=(location:string):string=>{
 }
 
 return(
-    <div className="flex justify-center items-center h-screen">
-        <Card className="bg-slate-100 w-full max-w-md mx-auto text-center shadow drop-shadow-xl shadow-slate-800 ">
+    <div className="flex bg-slate-950 justify-center items-center h-screen">
+        <Card className="bg-slate-50 w-full max-w-md mx-auto text-center shadow drop-shadow-xl shadow-slate-800 ">
             <CardHeader>
                 <CardTitle>Weather Widget</CardTitle>
                 <CardDescription>
@@ -135,17 +135,21 @@ return(
                 </form>
                 {error && <div className="mt-4 text-red-500">{error}</div>}
                 {weather && (
-                    <div className="mt-4 grid gap-2">
+                    <div className="justify-center mt-4 grid gap-2">
                         <div className="flex items-center gap-2">
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-col items-center gap-2">
                                 <ThermometerIcon className="w-6 h-6"/>
                                 {getTemperatureMessege(weather.temperature,weather.unit)}
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-col items-center gap-2">
                             <CloudIcon className="w-6 h-6"/>
-                            <div>{getLocationMessege(weather.location)}</div>
+                            <div>{getWeatherMessege(weather.description)}</div>
                         </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <MapPinIcon className="w-6 h-6"/>
+                            <div>{getLocationMessege(weather.location)}</div>
+                        </div>    
                     </div>
                 )}
             </CardContent>
