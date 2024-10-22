@@ -37,6 +37,7 @@ const handleSearch= async (e:FormEvent<HTMLFormElement>) => {
         }
 
         const data=await response.json();
+
         const weatherData:WeatherData={
             temperature: data.current.temp_c,
             description: data.current.condition.text,
@@ -83,7 +84,7 @@ const getWeatherMessege=(description:string):string=>{
         case "sunny":
             return "It's a beautiful sunny day!";
         case "partly cloudy":
-            return "Expect some clouds and sunshine partly.";
+            return "Expected sunshine and partly cloudy.";
         case "cloudy":
             return "It's cloudy today.";
         case "overcast":
