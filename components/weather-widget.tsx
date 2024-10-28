@@ -13,13 +13,14 @@ interface WeatherData{
 }
 
 export default function WeatherWidget(){
-const [location,setLocation]=useState<string>("");
+const [location, setLocation]=useState<string>("");
 const [weather,setWeather]=useState<WeatherData|null>(null);
 const [error,setError]=useState<string|null>(null);
 const [isLoading,setIsLoading]=useState<boolean>(false);
 
 const handleSearch= async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(e)
     const trimmedLocation=location.trim();
     if(trimmedLocation === ""){
         setError("Please enter a valid location.");
